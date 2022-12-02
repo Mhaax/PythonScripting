@@ -46,39 +46,71 @@ def function1():
     return
 
 
-def main():
-    print("Welcome to our Python Scripting project! What data would you like to see?")
-    print("1. Players Points goals per time played")
-    print("2. ...")
-    print("3. ...")
-    print("4. ...")
-    print("5. ...")
-    print("6. Exit")
-    choice = input("Enter your choice: ")
+def function2():
+    df=pd.read_csv('playerData.csv')
+    sns.heatmap(df[['3PM','AST']].corr(method='pearson'),annot=True)
+    plot.show()
+    return
+
+def function3():
+    df=pd.read_csv('playerData.csv')
     
+    sns.scatterplot(x="FTM", y="PTS", hue="Team", data=df)
+    plot.show()
+    return
 
-    if choice == "1":
-        print('\n')
-        function1()
-    elif choice == "2":
-        print('\n')
-        function2()
-    elif choice == "3":
-        print('\n')
-        function3()
-    elif choice == "4":
-        print('\n')
-        function4()
-    elif choice == "5":
-        print('\n')
-        function5()
-    elif choice == "6":
-        exit()
-    else :
-        print('\n')
-        print("Invalid choice")
-        main()
+def function4():
+    df=pd.read_csv('teamData.csv')
+    sns.jointplot(x="3PM", y="3PA", data=df, kind="kde")
+    plot.show()
+    return
 
+def function5():
+    df=pd.read_csv('playerData.csv')
+    sns.kdeplot(x="FGA", y="REB", data=df[df['Team']=='UTA']) #Dunk essayés et Rebond
+    #define x axe title as "Dunk essayés"
+    plot.xlabel("Dunk essayés")
+    #define y axe title as "Rebond"
+    plot.ylabel("Rebond")
+    plot.show()
+    return
 
+def main():
+    StillActive = True
+    while(StillActive):
+        print("\nWelcome to our Python Scripting project! What data would you like to see?")
+        print("1. Players Points goals per time played")
+        print("2. 3points marqués par équipe en fonction des passes décisives")
+        print("3. ...")
+        print("4. ...")
+        print("5. ...")
+        
+        print("6. Get Data")
+        print("7. Exit")
+        choice = input("Enter your choice: ")
+        
+
+        if choice == "1":
+            print('\n')
+            function1()
+        elif choice == "2":
+            print('\n')
+            function2()
+        elif choice == "3":
+            print('\n')
+            function3()
+        elif choice == "4":
+            print('\n')
+            function4()
+        elif choice == "5":
+            print('\n')
+            function5()
+        elif choice == "6":
+            StillActive = False
+        elif choice == "7":
+            StillActive = False
+        else :
+            print('\n')
+            print("Invalid choice")
+            
 main()
-
