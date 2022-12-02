@@ -81,9 +81,9 @@ def main():
         print("\nWelcome to our Python Scripting project! What data would you like to see?")
         print("1. Players Points goals per time played")
         print("2. 3points marqués par équipe en fonction des passes décisives")
-        print("3. ...")
-        print("4. ...")
-        print("5. ...")
+        print("3. Points marqués par équipe en fonction des lancers francs marqués")
+        print("4. 3points tentés par équipe en fonction des 3points marqués")
+        print("5. Rebonds par équipe en fonction des dunks essayés")
         
         print("6. Get Data")
         print("7. Exit")
