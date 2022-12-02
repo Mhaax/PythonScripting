@@ -17,7 +17,7 @@ def get_nba_stats():
     # Store the data
     data = [[]]
     for i in range(len(columns)):
-        if i % 30 == 0:
+        if i % 28 == 0:
             data.append([])
         data[-1].append(columns[i].text)
     data.pop(0)
