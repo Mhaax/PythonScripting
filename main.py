@@ -2,6 +2,7 @@ import os
 import json
 import pandas as pd
 import matplotlib.pyplot as plot
+import seaborn as sns
 
 #Get the timePlayed, pointsScored, number of games played for each player
 #Displays a plot of the average points scored per time played for each player
@@ -69,9 +70,9 @@ def function5():
     df=pd.read_csv('playerData.csv')
     sns.kdeplot(x="FGA", y="REB", data=df[df['Team']=='UTA']) #Dunk essayés et Rebond
     #define x axe title as "Dunk essayés"
-    plot.xlabel("Dunk essayés")
+    plot.xlabel("Dunks attempted")
     #define y axe title as "Rebond"
-    plot.ylabel("Rebond")
+    plot.ylabel("Team rebounds")
     plot.show()
     return
 
@@ -80,11 +81,10 @@ def main():
     while(StillActive):
         print("\nWelcome to our Python Scripting project! What data would you like to see?")
         print("1. Players Points goals per time played")
-        print("2. 3points marqués par équipe en fonction des passes décisives")
-        print("3. Points marqués par équipe en fonction des lancers francs marqués")
-        print("4. 3points tentés par équipe en fonction des 3points marqués")
-        print("5. Rebonds par équipe en fonction des dunks essayés")
-        
+        print("2. 3 points scored per team based on assists")
+        print("3. Points scored by team based on free throws scored")
+        print("4. 3points attempted per team based on 3points scored")
+        print("5. Team rebounds based on dunks attempted")
         print("6. Get Data")
         print("7. Exit")
         choice = input("Enter your choice: ")
